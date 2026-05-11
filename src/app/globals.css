@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0047FF;
+  --color-brand-dark: #050505;
+  --color-brand-silver: #F5F5F7;
+  --font-sans: var(--font-urbanist), sans-serif;
+}
+
+::selection {
+  background-color: #0047ff;
+  color: white;
+}
