@@ -25,7 +25,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden md:flex gap-8 text-sm font-medium text-white/70">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
           <Link
             href="#projetos"
             className="hover:text-brand-blue transition-colors"

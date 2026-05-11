@@ -28,6 +28,7 @@ export default function Contact() {
 
   async function onSubmit(data: ContactForm) {
     try {
+      if (!supabase) throw new Error("Serviço indisponível");
       const { error } = await supabase.from("leads").insert([data]);
       if (error) throw error;
       setSent(true);
