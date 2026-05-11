@@ -4,10 +4,6 @@ export interface Testimonial {
   text: string;
 }
 
-/**
- * Para adicionar um novo depoimento:
- * Basta adicionar um objeto abaixo seguindo o formato
- */
 export const testimonials: Testimonial[] = [
   {
     name: "Dr. Marcos Silva",
@@ -19,10 +15,4 @@ export const testimonials: Testimonial[] = [
     role: "Enshrouded Atlas",
     text: "Otimização impecável. Conseguimos manter um Core Web Vitals nota 100 mesmo com alta carga de anúncios e tráfego intenso.",
   },
-  // ─── ADICIONE NOVOS DEPOIMENTOS AQUI ───
-  // {
-  //   name: "Nome do Cliente",
-  //   role: "Empresa / Cargo",
-  //   text: "Depoimento do cliente aqui.",
-  // },
 ];
