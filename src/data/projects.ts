@@ -14,7 +14,12 @@ export const projects: Project[] = [
     category: "Sistemas Escaláveis / White Label",
     description:
       "Motor de geração de LPs dinâmicas com injeção de temas via banco de dados (Neon/Supabase) e suporte total a PWA.",
-    images: ["/projects/finance-war-room1.webp"],
+    images: [
+      "/projects/contabil-1.png",
+      "/projects/contabil-2.png",
+      "/projects/contabil-3.png",
+      "/projects/contabil-4.png",
+    ],
     tags: ["Next.js", "Tailwind", "Neon Postgres", "Prisma"],
     link: "https://white-label-six-gamma.vercel.app/contabilidade-smart",
   },
@@ -41,16 +46,30 @@ export const projects: Project[] = [
     category: "Landing Page Premium / Estética",
     description:
       "Landing page de alta conversão para salão de estética com design moderno e foco em agendamento.",
-    images: ["/projects/atlas.webp"],
+    images: [
+      "/projects/dani-coiffer-home.png",
+      "/projects/dani-coiffer.png",
+      "/projects/dani-coiffer-2.png",
+      "/projects/dani-coiffer-login.png",
+    ],
     tags: ["Next.js", "Tailwind", "SEO"],
   },
+
+  // ─── OLYMPUS IMAGES ───
   {
-    title: "Nutri Nunes",
-    category: "Landing Page Premium / Saúde",
+    title: "Olympus Images",
+    category: "Dashboard / Sistema Web",
     description:
-      "Página de conversão para nutricionista com foco em captação de leads e design clean.",
-    images: ["/projects/atlas.webp"],
-    tags: ["Next.js", "Tailwind", "Performance"],
+      "Plataforma de gestão de imagens com dashboard administrativo completo e interface moderna.",
+    images: [
+      "/projects/olympus-images_1.png",
+      "/projects/olympus-images_2.png",
+      "/projects/olympus-images_dash-1.png",
+      "/projects/olympus-images_dash-2.png",
+      "/projects/olympus-images_dash-3.png",
+      "/projects/olympus-images_dash-4.png",
+    ],
+    tags: ["Next.js", "TypeScript", "Dashboard"],
   },
 
   // ─── ADTECH & CONTENT ───
