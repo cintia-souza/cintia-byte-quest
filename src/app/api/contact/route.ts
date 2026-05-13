@@ -3,6 +3,10 @@ import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
+    if (!process.env.DATABASE_URL) {
+      return NextResponse.json({ error: "DATABASE_URL não configurada" }, { status: 500 });
+    }
+
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
