@@ -5,7 +5,6 @@ import { Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { supabase } from "@/lib/supabase";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -28,9 +27,12 @@ export default function Contact() {
 
   async function onSubmit(data: ContactForm) {
     try {
-      if (!supabase) throw new Error("Serviço indisponível");
-      const { error } = await supabase.from("leads").insert([data]);
-      if (error) throw error;
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error();
       setSent(true);
     } catch {
       alert("Erro ao enviar. Tente novamente.");
@@ -58,7 +60,7 @@ export default function Contact() {
             <p className="text-white/40 text-sm uppercase font-bold tracking-widest">
               Contato Direto
             </p>
-            <p className="text-2xl text-white">contato@bytequest.com.br</p>
+            <p className="text-2xl text-white">cinthya.artesg@gmail.com</p>
             <p className="text-brand-blue font-mono">Barueri, São Paulo</p>
           </div>
         </motion.div>
@@ -89,7 +91,9 @@ export default function Contact() {
                     className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white focus:border-brand-blue outline-none transition-all"
                   />
                   {errors.name && (
-                    <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+                    <p className="text-red-400 text-xs mt-1">
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -100,7 +104,9 @@ export default function Contact() {
                     className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white focus:border-brand-blue outline-none transition-all"
                   />
                   {errors.email && (
-                    <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+                    <p className="text-red-400 text-xs mt-1">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
               </div>
@@ -112,7 +118,9 @@ export default function Contact() {
                   className="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white focus:border-brand-blue outline-none transition-all"
                 />
                 {errors.message && (
-                  <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>
+                  <p className="text-red-400 text-xs mt-1">
+                    {errors.message.message}
+                  </p>
                 )}
               </div>
               <button
