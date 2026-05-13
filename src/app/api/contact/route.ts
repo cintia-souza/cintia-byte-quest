@@ -14,7 +14,9 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ error: "Erro interno" }, { status: 500 });
+  } catch (err) {
+    console.error("Contact API error:", err);
+    const errorMessage = err instanceof Error ? err.message : "Erro interno";
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
