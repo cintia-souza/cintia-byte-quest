@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Monitor, Zap, Database, Bot } from "lucide-react";
+import { Layers, Zap, Database, Globe } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface Service {
@@ -11,24 +11,24 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Landing Pages Premium",
-    desc: "Páginas de conversão para médicos e serviços de luxo. Foco total em Core Web Vitals e velocidade extrema.",
-    icon: <Zap className="text-brand-blue" />,
+    title: "Sistemas White Label",
+    desc: "Motores de geração de LPs e SaaS com temas dinâmicos via banco de dados. Escale sem reescrever código.",
+    icon: <Layers className="text-brand-blue" />,
   },
   {
-    title: "Sistemas Web & PWAs",
-    desc: "Aplicações robustas como o 'Finance War Room'. Gestão de dados segura com Supabase e interfaces React.",
+    title: "PWAs & Apps Financeiros",
+    desc: "Aplicações offline-first com sincronização em tempo real. UX mobile-first e performance extrema.",
     icon: <Database className="text-brand-blue" />,
   },
   {
-    title: "Otimização de Performance",
-    desc: "Transformo sites lentos em máquinas de vendas. Auditoria completa e correção de métricas do Google.",
-    icon: <Monitor className="text-brand-blue" />,
+    title: "Landing Pages Premium",
+    desc: "Páginas de conversão para médicos e serviços de luxo. Core Web Vitals 100/100 garantido.",
+    icon: <Zap className="text-brand-blue" />,
   },
   {
-    title: "Automação com IA",
-    desc: "Agentes inteligentes para atendimento e processos, integrando Make.com para escalar seu negócio.",
-    icon: <Bot className="text-brand-blue" />,
+    title: "AdTech & SEO",
+    desc: "Portais de conteúdo otimizados para monetização via AdSense sem prejudicar CLS ou experiência do usuário.",
+    icon: <Globe className="text-brand-blue" />,
   },
 ];
 
@@ -43,10 +43,11 @@ export default function Services() {
           className="mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Serviços <span className="text-brand-blue">Especializados</span>
+            Soluções <span className="text-brand-blue">Full Stack</span>
           </h2>
           <p className="text-white/50 mt-6 max-w-xl text-lg">
-            Soluções Full-Stack pensadas para o público de Barueri e Alphaville.
+            Da arquitetura ao deploy — produtos digitais escaláveis com métricas
+            de performance impecáveis.
           </p>
         </motion.div>
 

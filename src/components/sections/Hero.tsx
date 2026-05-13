@@ -54,18 +54,19 @@ export default function Hero() {
             variants={fadeUp}
             className="text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tighter max-w-4xl"
           >
-            Arquitetando soluções <br />
-            <span className="text-brand-blue">de alta performance.</span>
+            Transformando ideias em <br />
+            <span className="text-brand-blue">produtos digitais de alta performance.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-8 text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed"
           >
-            Desenvolvedora Full-Stack especialista em{" "}
-            <span className="text-white">Next.js</span> e{" "}
-            <span className="text-white">Supabase</span>. Transformo sistemas
-            complexos em experiências digitais impecáveis e lucrativas.
+            Arquiteta de Soluções Full Stack &amp; White Label. Especialista em{" "}
+            <span className="text-white">Next.js</span>,{" "}
+            <span className="text-white">TypeScript Strict</span> e{" "}
+            <span className="text-white">Sistemas Escaláveis</span>. Entrego
+            métricas 100/100 no PageSpeed e produtos prontos para escalar.
           </motion.p>
 
           <motion.div
@@ -92,20 +93,34 @@ export default function Hero() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-24 pt-10 border-t border-white/5 w-full max-w-3xl flex flex-wrap justify-center gap-8 md:gap-12 opacity-40 hover:opacity-70 transition-opacity duration-500"
+            className="mt-24 pt-10 border-t border-white/5 w-full max-w-4xl"
           >
-            <span className="text-sm font-bold tracking-widest text-white">
-              NEXT.JS 14
-            </span>
-            <span className="text-sm font-bold tracking-widest text-white">
-              TYPESCRIPT
-            </span>
-            <span className="text-sm font-bold tracking-widest text-white">
-              SUPABASE
-            </span>
-            <span className="text-sm font-bold tracking-widest text-white">
-              TAILWIND
-            </span>
+            <div className="grid grid-cols-3 gap-8 text-center">
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Core Stack</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {["Next.js", "TypeScript", "React"].map((t) => (
+                    <span key={t} className="text-xs font-bold tracking-widest text-white/60">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Data &amp; Backend</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {["Neon", "Supabase", "Prisma"].map((t) => (
+                    <span key={t} className="text-xs font-bold tracking-widest text-white/60">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Optimization</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {["PWA", "SEO", "AdTech"].map((t) => (
+                    <span key={t} className="text-xs font-bold tracking-widest text-white/60">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.div>

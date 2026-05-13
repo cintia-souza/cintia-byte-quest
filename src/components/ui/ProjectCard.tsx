@@ -1,13 +1,16 @@
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 interface ProjectProps {
   title: string;
   category: string;
+  description?: string;
   image: string;
   tags: string[];
+  link?: string;
 }
 
-export function ProjectCard({ title, category, image, tags }: ProjectProps) {
+export function ProjectCard({ title, category, description, image, tags, link }: ProjectProps) {
   return (
     <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10">
       <div className="aspect-video relative overflow-hidden">
@@ -26,8 +29,11 @@ export function ProjectCard({ title, category, image, tags }: ProjectProps) {
           {category}
         </span>
         <h3 className="text-2xl font-bold text-white mt-2">{title}</h3>
+        {description && (
+          <p className="text-white/50 text-sm mt-3 leading-relaxed">{description}</p>
+        )}
 
-        <div className="flex gap-2 mt-6">
+        <div className="flex flex-wrap gap-2 mt-6">
           {tags.map((t) => (
             <span
               key={t}
@@ -37,6 +43,17 @@ export function ProjectCard({ title, category, image, tags }: ProjectProps) {
             </span>
           ))}
         </div>
+
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm text-brand-blue font-bold hover:text-white transition-colors"
+          >
+            Ver Projeto <ExternalLink size={14} />
+          </a>
+        )}
       </div>
     </div>
   );

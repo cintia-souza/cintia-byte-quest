@@ -23,8 +23,7 @@ export default function Home() {
               Portfólio <span className="text-brand-blue">Estratégico</span>
             </h2>
             <p className="text-white/50 mt-4 max-w-xl">
-              Soluções reais que unem design sofisticado e engenharia de
-              software.
+              Produtos digitais escaláveis — do White Label ao AdTech.
             </p>
           </div>
 
@@ -46,7 +45,12 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-white mt-2">
                       {project.title}
                     </h3>
-                    <div className="flex gap-2 mt-6">
+                    {project.description && (
+                      <p className="text-white/50 text-sm mt-3 leading-relaxed">
+                        {project.description}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap gap-2 mt-6">
                       {project.tags.map((t) => (
                         <span
                           key={t}
@@ -56,6 +60,16 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-6 text-sm text-brand-blue font-bold hover:text-white transition-colors"
+                      >
+                        Ver Projeto
+                      </a>
+                    )}
                   </div>
                 </div>
               ) : (
@@ -63,8 +77,10 @@ export default function Home() {
                   key={project.title}
                   title={project.title}
                   category={project.category}
+                  description={project.description}
                   image={project.images[0]}
                   tags={project.tags}
+                  link={project.link}
                 />
               )
             )}
