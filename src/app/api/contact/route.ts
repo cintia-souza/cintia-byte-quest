@@ -1,18 +1,15 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
-    if (!process.env.DATABASE_URL) {
-      return NextResponse.json({ error: "DATABASE_URL não configurada" }, { status: 500 });
-    }
-
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Campos obrigatórios" }, { status: 400 });
     }
 
+    const prisma = getPrisma();
     await prisma.lead.create({
       data: { name, email, message },
     });
