@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPrisma } from "@/lib/prisma";
+import { neon } from "@neondatabase/serverless";
 
 export async function POST(request: Request) {
   try {
@@ -9,10 +9,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Campos obrigatórios" }, { status: 400 });
     }
 
-    const prisma = getPrisma();
-    await prisma.lead.create({
-      data: { name, email, message },
-    });
+    const databaseUrl = process.env.DATABASE_URL;
+    if (!databaseUrl) {
+      return NextResponse.json({ error: "DATABASE_URL não configurada" }, { status: 500 });
+    }
+
+    const sql = neon(databaseUrl);
+    await sql`INSERT INTO leads (name, email, message) VALUES (${name}, ${email}, ${message})`;
 
     return NextResponse.json({ success: true });
   } catch (err) {
