@@ -4,13 +4,26 @@ import Hero from "@/components/sections/Hero";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { ProjectCarousel } from "@/components/ui/ProjectCarousel";
 import Footer from "@/components/layout/Footer";
-import { projects } from "@/data/projects";
+import { projects as staticProjects } from "@/data/projects";
+import { prisma } from "@/lib/prisma";
 
 const Services = dynamic(() => import("@/components/sections/Services"));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
 const Contact = dynamic(() => import("@/components/sections/Contact"));
 
-export default function Home() {
+async function getProjects() {
+  try {
+    const dbProjects = await prisma.project.findMany({
+      where: { visible: true },
+      orderBy: { order: "asc" },
+    });
+    if (dbProjects.length > 0) return dbProjects;
+  } catch {}
+  return staticProjects;
+}
+
+export default async function Home() {
+  const projects = await getProjects();
   return (
     <main className="bg-brand-dark min-h-screen selection:bg-brand-blue selection:text-white">
       <Navbar />
@@ -80,7 +93,7 @@ export default function Home() {
                   description={project.description}
                   image={project.images[0]}
                   tags={project.tags}
-                  link={project.link}
+                  link={project.link ?? undefined}
                 />
               )
             )}

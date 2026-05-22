@@ -5,26 +5,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://bytequest.com.br",
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: "https://bytequest.com.br/#projetos",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://bytequest.com.br/#servicos",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://bytequest.com.br/#contato",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
     },
   ];
 }

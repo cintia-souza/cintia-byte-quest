@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Lead {
@@ -15,4 +16,40 @@ model Lead {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("leads")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  category    String
+  description String
+  images      String[]
+  tags        String[]
+  link        String?
+  order       Int      @default(0)
+  visible     Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("projects")
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  dataUrl   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("images")
+}
+
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+  name      String
+  role      String?
+  message   String
+  order     Int      @default(0)
+  visible   Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("testimonials")
 }

@@ -60,6 +60,13 @@ export default function Hero() {
 
           <motion.p
             variants={fadeUp}
+            className="mt-4 text-sm text-white/40 max-w-xl"
+          >
+            Desenvolvedora de sites em Barueri e Alphaville &mdash; criação de sites, landing pages e sistemas web para empresas da região.
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
             className="mt-8 text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed"
           >
             Arquiteta de Soluções Full Stack &amp; White Label. Especialista em{" "}
