@@ -11,6 +11,8 @@ interface ProjectProps {
 }
 
 export function ProjectCard({ title, category, description, image, tags, link }: ProjectProps) {
+  const isApiImage = image.startsWith("/api/");
+
   return (
     <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10">
       <div className="aspect-video relative overflow-hidden">
@@ -18,6 +20,7 @@ export function ProjectCard({ title, category, description, image, tags, link }:
           src={image}
           alt={title}
           fill
+          unoptimized={isApiImage}
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover group-hover:scale-110 transition-transform duration-500"
         />

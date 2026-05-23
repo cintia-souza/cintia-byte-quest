@@ -31,6 +31,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
               src={images[current]}
               alt={`${title} - Screenshot ${current + 1}`}
               fill
+              unoptimized={images[current].startsWith("/api/")}
               sizes="(max-width: 768px) 100vw, 70vw"
               className="object-cover"
             />
